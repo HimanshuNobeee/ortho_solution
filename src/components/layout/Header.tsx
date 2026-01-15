@@ -12,10 +12,12 @@ import {
     ListItem,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import BookingDialog from '../common/BookingDialog';
 
 
 const Header = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [bookingOpen, setBookingOpen] = useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -35,6 +37,7 @@ const Header = () => {
                         color="secondary"
                         fullWidth
                         sx={{ m: 2, color: 'white', fontWeight: 700 }}
+                        onClick={() => setBookingOpen(true)}
                     >
                         Book Appointment
                     </Button>
@@ -104,6 +107,7 @@ const Header = () => {
                             variant="contained"
                             color="secondary"
                             sx={{ ml: 2, color: 'white', fontWeight: 600 }}
+                            onClick={() => setBookingOpen(true)}
                         >
                             Book Appointment
                         </Button>
@@ -126,6 +130,7 @@ const Header = () => {
                     </Drawer>
                 </Toolbar>
             </Container>
+            <BookingDialog open={bookingOpen} onClose={() => setBookingOpen(false)} />
         </AppBar>
     );
 };
