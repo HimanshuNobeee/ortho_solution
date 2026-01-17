@@ -19,13 +19,13 @@ graph TB
     end
 
     subgraph Infrastructure [Deployment]
-        CDN[Content Delivery Network (Netlify/Vercel)]
-        AssetStorage[Static Assets (Images/Icons)]
+        CDN["Content Delivery Network (Netlify/Vercel)"]
+        AssetStorage["Static Assets (Images/Icons)"]
     end
 
     subgraph External [External Services]
-        EmailAPI[Email Service (Future Scope)]
-        WhatsApp[WhatsApp API (Redirect)]
+        EmailAPI["Email Service (Future Scope)"]
+        WhatsApp["WhatsApp API (Redirect)"]
     end
 
     %% Flows
