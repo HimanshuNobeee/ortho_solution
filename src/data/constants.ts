@@ -13,13 +13,7 @@ export const COMPANY_INFO = {
   },
 };
 
-export const NAV_LINKS = [
-  'Home',
-  'About Us',
-  'Services',
-  'Book Appointment',
-  'Blog',
-];
+export const NAV_LINKS = ['Home', 'About Us', 'Services', 'Patient Success'];
 
 export const UI_TEXT = {
   header: {

@@ -11,6 +11,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { COMPANY_INFO, NAV_LINKS, UI_TEXT } from '../../data/constants';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Footer = () => {
   const { footer } = UI_TEXT;
@@ -50,17 +51,25 @@ const Footer = () => {
               {footer.quickLinks}
             </Typography>
             <Stack spacing={1}>
-              {NAV_LINKS.map((item) => (
-                <Link
-                  key={item}
-                  href="#"
-                  color="inherit"
-                  underline="hover"
-                  sx={{ opacity: 0.8 }}
-                >
-                  {item}
-                </Link>
-              ))}
+              {NAV_LINKS.map((item) => {
+                let path = '/';
+                if (item === 'About Us') path = '/about';
+                else if (item === 'Services') path = '/services';
+                else if (item === 'Patient Success') path = '/patient-success';
+
+                return (
+                  <Link
+                    component={RouterLink}
+                    to={path}
+                    key={item}
+                    color="inherit"
+                    underline="hover"
+                    sx={{ opacity: 0.8, cursor: 'pointer' }}
+                  >
+                    {item}
+                  </Link>
+                );
+              })}
             </Stack>
           </Grid2>
 

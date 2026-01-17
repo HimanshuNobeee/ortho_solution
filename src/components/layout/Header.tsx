@@ -10,18 +10,38 @@ import {
   Drawer,
   List,
   ListItem,
+  ListItemButton,
+  ListItemText,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { COMPANY_INFO, UI_TEXT } from '../../data/constants';
+import { COMPANY_INFO, UI_TEXT, NAV_LINKS } from '../../data/constants';
 import { useBooking } from '../../context/BookingContext';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { header } = UI_TEXT;
   const { openBooking } = useBooking();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
+  };
+
+  const getPath = (text: string) => {
+    switch (text) {
+      case 'Home':
+        return '/';
+      case 'About Us':
+        return '/about';
+      case 'Services':
+        return '/services';
+      case 'Patient Success':
+        return '/patient-success';
+      default:
+        return '/';
+    }
   };
 
   const drawer = (
@@ -32,6 +52,16 @@ const Header = () => {
         </Typography>
       </Box>
       <List>
+        {NAV_LINKS.map((item) => (
+          <ListItem key={item} disablePadding>
+            <ListItemButton
+              onClick={() => navigate(getPath(item))}
+              selected={location.pathname === getPath(item)}
+            >
+              <ListItemText primary={item} />
+            </ListItemButton>
+          </ListItem>
+        ))}
         <ListItem disablePadding>
           <Button
             variant="contained"
@@ -58,8 +88,8 @@ const Header = () => {
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            component={Link}
+            to="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -68,11 +98,39 @@ const Header = () => {
               letterSpacing: '.1rem',
               color: 'primary.main',
               textDecoration: 'none',
-              flexGrow: 1,
+              flexGrow: 0,
             }}
           >
             {COMPANY_INFO.name}
           </Typography>
+
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'none', md: 'flex' },
+              justifyContent: 'flex-end',
+              mr: 2,
+            }}
+          >
+            {NAV_LINKS.map((item) => (
+              <Button
+                key={item}
+                onClick={() => navigate(getPath(item))}
+                sx={{
+                  my: 2,
+                  color:
+                    location.pathname === getPath(item)
+                      ? 'primary.main'
+                      : 'text.primary',
+                  display: 'block',
+                  fontWeight: 600,
+                  '&:hover': { color: 'primary.main' },
+                }}
+              >
+                {item}
+              </Button>
+            ))}
+          </Box>
 
           {/* HAMBURGER - MOBILE */}
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
@@ -90,8 +148,8 @@ const Header = () => {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            component={Link}
+            to="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -105,7 +163,7 @@ const Header = () => {
             {header.mobileLogoText}
           </Typography>
 
-          {/* MENU - DESKTOP */}
+          {/* CTA BUTTON - DESKTOP */}
           <Box
             sx={{
               display: { xs: 'none', md: 'flex' },

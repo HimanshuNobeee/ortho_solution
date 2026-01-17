@@ -8,14 +8,17 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  Button,
 } from '@mui/material';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import GroupsIcon from '@mui/icons-material/Groups';
 import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import SectionTitle from '../components/common/SectionTitle';
+import { useBooking } from '../context/BookingContext';
 
 const AboutPage = () => {
+  const { openBooking } = useBooking();
   return (
     <Box sx={{ pb: 12 }}>
       {/* Hero Section for Page */}
@@ -241,6 +244,37 @@ const AboutPage = () => {
               </Grid2>
             </Grid2>
           </Grid2>
+        </Box>
+
+        {/* CTA Section */}
+        <Box
+          sx={{
+            mt: 12,
+            textAlign: 'center',
+            bgcolor: 'primary.light',
+            py: 8,
+            borderRadius: 4,
+            color: 'white',
+          }}
+        >
+          <Typography variant="h4" fontWeight={700} gutterBottom>
+            Ready to Experience Our Care?
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{ opacity: 0.9, mb: 4, fontWeight: 400 }}
+          >
+            Schedule a visit to our facility or consult with our experts today.
+          </Typography>
+          <Button
+            variant="contained"
+            color="secondary"
+            size="large"
+            onClick={openBooking}
+            sx={{ px: 6, py: 1.5, fontSize: '1.1rem' }}
+          >
+            Book Appointment
+          </Button>
         </Box>
       </Container>
     </Box>
