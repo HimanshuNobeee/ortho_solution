@@ -8,6 +8,7 @@ import {
   Button,
 } from '@mui/material';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
+import { useNavigate } from 'react-router-dom';
 
 const awards = [
   { title: 'Best Orthopedic Clinic 2024', issuer: 'City Health Awards' },
@@ -16,6 +17,8 @@ const awards = [
 ];
 
 const OverviewAwards = () => {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{ py: { xs: 8, md: 12 }, bgcolor: 'primary.main', color: 'white' }}
@@ -46,6 +49,7 @@ const OverviewAwards = () => {
               color="secondary"
               size="large"
               sx={{ color: 'white', px: 4 }}
+              onClick={() => navigate('/about')}
             >
               About Our Clinic
             </Button>

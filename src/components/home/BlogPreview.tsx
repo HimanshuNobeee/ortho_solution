@@ -9,32 +9,12 @@ import {
   CardActionArea,
   Chip,
 } from '@mui/material';
-
-const posts = [
-  {
-    title: '5 Exercises for Stronger Knees',
-    category: 'Physiotherapy',
-    date: 'Oct 15, 2024',
-    image:
-      'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-  },
-  {
-    title: 'Understanding Joint Replacement Surgery',
-    category: 'Orthopedics',
-    date: 'Oct 10, 2024',
-    image:
-      'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-  },
-  {
-    title: 'Post-Surgery Rehab Tips',
-    category: 'Recovery',
-    date: 'Oct 05, 2024',
-    image:
-      'https://images.unsplash.com/photo-1574680096145-d05b474e2155?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-  },
-];
+import { BLOG_POSTS } from '../../data/blogPosts';
+import { useNavigate } from 'react-router-dom';
 
 const BlogPreview = () => {
+  const navigate = useNavigate();
+
   return (
     <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'background.default' }}>
       <Container maxWidth="lg">
@@ -52,8 +32,8 @@ const BlogPreview = () => {
         </Box>
 
         <Grid2 container spacing={4}>
-          {posts.map((post, index) => (
-            <Grid2 size={{ xs: 12, sm: 6, md: 4 }} key={index}>
+          {BLOG_POSTS.map((post) => (
+            <Grid2 size={{ xs: 12, sm: 6, md: 4 }} key={post.id}>
               <Card
                 sx={{
                   height: '100%',
@@ -63,7 +43,7 @@ const BlogPreview = () => {
                   '&:hover': { transform: 'translateY(-5px)', boxShadow: 6 },
                 }}
               >
-                <CardActionArea>
+                <CardActionArea onClick={() => navigate(`/blog/${post.id}`)}>
                   <CardMedia
                     component="img"
                     height="200"
@@ -95,9 +75,17 @@ const BlogPreview = () => {
                     >
                       {post.title}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      Read more about essential tips for maintaining joint
-                      health...
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{
+                        display: '-webkit-box',
+                        WebkitLineClamp: 3,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden',
+                      }}
+                    >
+                      {post.excerpt}
                     </Typography>
                   </CardContent>
                 </CardActionArea>

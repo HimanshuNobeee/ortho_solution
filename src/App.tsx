@@ -9,6 +9,8 @@ import BlogPreview from './components/home/BlogPreview';
 import { Box } from '@mui/material';
 import ServicesPage from './pages/ServicesPage';
 import PatientSuccessPage from './pages/PatientSuccessPage';
+import AboutPage from './pages/AboutPage';
+import BlogPostPage from './pages/BlogPostPage';
 
 // Home Component to group sections
 const Home = () => {
@@ -34,6 +36,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/patient-success" element={<PatientSuccessPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/blog/:id" element={<BlogPostPage />} />
         </Routes>
         <Footer />
       </Box>
