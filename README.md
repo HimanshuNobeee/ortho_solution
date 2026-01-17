@@ -67,21 +67,29 @@ pnpm build
 
 The output will be in the `dist/` folder.
 
-### 🚀 Deployment (GitHub Pages)
+### 🚀 Deployment (Firebase Hosting)
 
-This project is configured for easy deployment to GitHub Pages.
+This project is optimized for Firebase Hosting.
 
-1.  **Deploy Command**:
+1.  **Install Tools**:
 
     ```bash
-    pnpm run deploy
+    npm install -g firebase-tools
+    firebase login
     ```
 
-    This script automatically builds the project and pushes the `dist` folder to a `gh-pages` branch on your repository.
+2.  **Initialize & Deploy**:
 
-2.  **Verify**:
-    Go to your GitHub Repository Settings -> Pages. Ensure the source is set to `gh-pages` branch.
-    Your site will be live at: `https://HimanshuNobeee.github.io/ortho_solution/`
+    ```bash
+    firebase init hosting
+    # Select 'dist' as public directory
+    # Select 'Yes' for single-page app (SPA)
+
+    pnpm build
+    firebase deploy
+    ```
+
+Your site will be live at your Firebase URL.
 
 ---
 

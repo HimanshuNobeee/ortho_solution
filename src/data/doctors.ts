@@ -1,3 +1,6 @@
+import doctor1 from '../assets/images/doctor1.jpg';
+import doctor2 from '../assets/images/doctor2.jpg';
+
 export interface Doctor {
   id: number;
   name: string;
@@ -17,7 +20,7 @@ export const doctors: Doctor[] = [
     role: 'Orthopedic Surgeon',
     qualifications: 'MBBS, MS (Orthopedics)',
     experience: '15+ Years Experience',
-    image: '/src/assets/images/doctor1.jpg', // Placeholder path
+    image: doctor1,
     specialties: [
       'Joint Replacement',
       'Arthroscopy',
@@ -33,7 +36,7 @@ export const doctors: Doctor[] = [
     role: 'Physiotherapist',
     qualifications: 'BPT, MPT (Neuro)',
     experience: '12+ Years Experience',
-    image: '/src/assets/images/doctor2.jpg', // Placeholder path
+    image: doctor2,
     specialties: [
       'Neuro Rehabilitation',
       'Post-Op Recovery',

@@ -47,7 +47,7 @@ const Specialties = () => {
         />
 
         <Grid2 container spacing={4}>
-          {SERVICES.map((service, index) => (
+          {SERVICES.slice(0, 6).map((service, index) => (
             <Grid2 size={{ xs: 12, sm: 6, md: 4 }} key={index}>
               <Card
                 sx={{
