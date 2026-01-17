@@ -67,6 +67,22 @@ pnpm build
 
 The output will be in the `dist/` folder.
 
+### 🚀 Deployment (GitHub Pages)
+
+This project is configured for easy deployment to GitHub Pages.
+
+1.  **Deploy Command**:
+
+    ```bash
+    pnpm run deploy
+    ```
+
+    This script automatically builds the project and pushes the `dist` folder to a `gh-pages` branch on your repository.
+
+2.  **Verify**:
+    Go to your GitHub Repository Settings -> Pages. Ensure the source is set to `gh-pages` branch.
+    Your site will be live at: `https://HimanshuNobeee.github.io/ortho_solution/`
+
 ---
 
 ## 📂 Project Structure

@@ -6,7 +6,7 @@ This document covers the **High-Level Design (HLD)** and **Low-Level Design (LLD
 
 ## 1. High Level Design (HLD)
 
-### 🏗 System Architecture
+### System Architecture
 
 The application follows a **Client-Side Rendering (CSR)** architecture (Single Page Application).
 
