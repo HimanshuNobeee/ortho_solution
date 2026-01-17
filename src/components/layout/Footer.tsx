@@ -1,7 +1,7 @@
 import {
   Box,
   Container,
-  Grid,
+  Grid2,
   Typography,
   Link,
   Stack,
@@ -18,8 +18,8 @@ const Footer = () => {
   return (
     <Box sx={{ bgcolor: 'primary.dark', color: 'white', py: 6, mt: 8 }}>
       <Container maxWidth="lg">
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={4}>
+        <Grid2 container spacing={4}>
+          <Grid2 size={{ xs: 12, md: 4 }}>
             <Typography
               variant="h5"
               sx={{ fontWeight: 700, mb: 2, fontFamily: 'Outfit' }}
@@ -40,9 +40,9 @@ const Footer = () => {
                 <InstagramIcon />
               </IconButton>
             </Stack>
-          </Grid>
+          </Grid2>
 
-          <Grid item xs={6} md={4}>
+          <Grid2 size={{ xs: 6, md: 4 }}>
             <Typography
               variant="h6"
               sx={{ fontWeight: 600, mb: 2, fontFamily: 'Outfit' }}
@@ -62,9 +62,9 @@ const Footer = () => {
                 </Link>
               ))}
             </Stack>
-          </Grid>
+          </Grid2>
 
-          <Grid item xs={6} md={4}>
+          <Grid2 size={{ xs: 6, md: 4 }}>
             <Typography
               variant="h6"
               sx={{ fontWeight: 600, mb: 2, fontFamily: 'Outfit' }}
@@ -97,8 +97,8 @@ const Footer = () => {
                 </Typography>
               </Box>
             </Stack>
-          </Grid>
-        </Grid>
+          </Grid2>
+        </Grid2>
         <Box
           sx={{
             textAlign: 'center',

@@ -15,8 +15,8 @@ const Home = () => {
   return (
     <Box component="main">
       <HeroSection />
-      <DoctorProfiles />
       <Specialties />
+      <DoctorProfiles />
       <OverviewAwards />
       <BlogPreview />
     </Box>

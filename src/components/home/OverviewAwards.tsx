@@ -1,7 +1,7 @@
 import {
   Box,
   Container,
-  Grid,
+  Grid2,
   Typography,
   Card,
   CardContent,
@@ -21,8 +21,8 @@ const OverviewAwards = () => {
       sx={{ py: { xs: 8, md: 12 }, bgcolor: 'primary.main', color: 'white' }}
     >
       <Container maxWidth="lg">
-        <Grid container spacing={8} alignItems="center">
-          <Grid item xs={12} md={6}>
+        <Grid2 container spacing={8} alignItems="center">
+          <Grid2 size={{ xs: 12, md: 6 }}>
             <Typography
               variant="h6"
               sx={{ opacity: 0.8, letterSpacing: 1, mb: 2 }}
@@ -49,12 +49,12 @@ const OverviewAwards = () => {
             >
               About Our Clinic
             </Button>
-          </Grid>
+          </Grid2>
 
-          <Grid item xs={12} md={6}>
-            <Grid container spacing={3}>
+          <Grid2 size={{ xs: 12, md: 6 }}>
+            <Grid2 container spacing={3}>
               {awards.map((award, index) => (
-                <Grid item xs={12} key={index}>
+                <Grid2 size={{ xs: 12 }} key={index}>
                   <Card
                     sx={{
                       bgcolor: 'rgba(255,255,255,0.1)',
@@ -87,11 +87,11 @@ const OverviewAwards = () => {
                       </Box>
                     </CardContent>
                   </Card>
-                </Grid>
+                </Grid2>
               ))}
-            </Grid>
-          </Grid>
-        </Grid>
+            </Grid2>
+          </Grid2>
+        </Grid2>
       </Container>
     </Box>
   );

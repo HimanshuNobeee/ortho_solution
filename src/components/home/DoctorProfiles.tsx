@@ -2,7 +2,7 @@ import {
   Box,
   Button,
   Container,
-  Grid,
+  Grid2,
   Typography,
   Card,
   CardContent,
@@ -32,7 +32,7 @@ const DoctorProfiles = () => {
   const { doctorProfiles } = UI_TEXT.home;
 
   return (
-    <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'background.default' }}>
+    <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'white' }}>
       <Container maxWidth="lg">
         <SectionTitle
           subtitle={doctorProfiles.subtitle}
@@ -41,9 +41,9 @@ const DoctorProfiles = () => {
           subtitleColor="primary"
         />
 
-        <Grid container spacing={4} justifyContent="center">
+        <Grid2 container spacing={4} justifyContent="center">
           {doctors.map((doctor) => (
-            <Grid item xs={12} md={6} key={doctor.id}>
+            <Grid2 size={{ xs: 12, md: 6 }} key={doctor.id}>
               <Card
                 sx={{
                   display: 'flex',
@@ -130,9 +130,9 @@ const DoctorProfiles = () => {
                   </Button>
                 </CardContent>
               </Card>
-            </Grid>
+            </Grid2>
           ))}
-        </Grid>
+        </Grid2>
 
         {/* Profile Dialog */}
         <Dialog
@@ -161,8 +161,8 @@ const DoctorProfiles = () => {
               </DialogTitle>
               <Divider />
               <DialogContent>
-                <Grid container spacing={4}>
-                  <Grid item xs={12} md={4}>
+                <Grid2 container spacing={4}>
+                  <Grid2 size={{ xs: 12, md: 4 }}>
                     <Stack spacing={2}>
                       <Box>
                         <Box
@@ -222,8 +222,8 @@ const DoctorProfiles = () => {
                         </Typography>
                       </Box>
                     </Stack>
-                  </Grid>
-                  <Grid item xs={12} md={8}>
+                  </Grid2>
+                  <Grid2 size={{ xs: 12, md: 8 }}>
                     <Typography variant="h6" gutterBottom>
                       {doctorProfiles.dialog.biography}
                     </Typography>
@@ -248,8 +248,8 @@ const DoctorProfiles = () => {
                         />
                       ))}
                     </Box>
-                  </Grid>
-                </Grid>
+                  </Grid2>
+                </Grid2>
               </DialogContent>
               <DialogActions sx={{ px: 3, pb: 3 }}>
                 <Button onClick={() => setSelectedDoctor(null)}>
