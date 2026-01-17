@@ -22,13 +22,15 @@
   "bugs": {
     "url": "https://github.com/emre-cil/vite-mui-ts/issues"
   },
-  "homepage": "https://github.com/emre-cil/vite-mui-ts#readme",
+  "homepage": "https://HimanshuNobeee.github.io/ortho_solution/",
   "scripts": {
     "dev": "vite --open",
     "start": "vite --open",
     "host": "vite --open --host",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "format": "prettier \"src/**/*.{js,jsx,ts,tsx,css,scss}\" --write",
