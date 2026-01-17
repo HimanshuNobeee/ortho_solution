@@ -60,7 +60,7 @@ const HeroSection = () => {
                   letterSpacing: 1,
                 }}
               >
-                Welcome to Apex Clinic
+                Welcome to Ortho Solution
               </Typography>
               <Typography
                 variant="h1"

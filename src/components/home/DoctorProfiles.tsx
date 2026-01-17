@@ -21,36 +21,25 @@ import SchoolIcon from '@mui/icons-material/School';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import { useState } from 'react';
 import { doctors, Doctor } from '../../data/doctors';
-import BookingDialog from '../common/BookingDialog';
+import { UI_TEXT } from '../../data/constants';
+import SectionTitle from '../common/SectionTitle';
+import { useBooking } from '../../context/BookingContext';
 
 const DoctorProfiles = () => {
   const [selectedDoctor, setSelectedDoctor] = useState<Doctor | null>(null);
-  const [bookingOpen, setBookingOpen] = useState(false);
+  const { openBooking } = useBooking();
+
+  const { doctorProfiles } = UI_TEXT.home;
 
   return (
     <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'background.default' }}>
       <Container maxWidth="lg">
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <Typography
-            variant="h6"
-            color="primary"
-            sx={{ fontWeight: 700, mb: 1, letterSpacing: 1 }}
-          >
-            EXPERTS YOU CAN TRUST
-          </Typography>
-          <Typography variant="h2" sx={{ fontWeight: 700, mb: 2 }}>
-            Meet Our Specialists
-          </Typography>
-          <Typography
-            variant="body1"
-            color="text.secondary"
-            sx={{ maxWidth: 600, mx: 'auto' }}
-          >
-            Our clinic is led by highly qualified professionals dedicated to
-            providing personalized care for your orthopedic and physiotherapy
-            needs.
-          </Typography>
-        </Box>
+        <SectionTitle
+          subtitle={doctorProfiles.subtitle}
+          title={doctorProfiles.title}
+          description={doctorProfiles.description}
+          subtitleColor="primary"
+        />
 
         <Grid container spacing={4} justifyContent="center">
           {doctors.map((doctor) => (
@@ -82,8 +71,10 @@ const DoctorProfiles = () => {
                       height: '100%',
                       objectFit: 'cover',
                     }}
-                    onError={(e: any) => {
-                      e.target.src =
+                    onError={(
+                      e: React.SyntheticEvent<HTMLImageElement, Event>,
+                    ) => {
+                      e.currentTarget.src =
                         'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'; // Fallback
                     }}
                   />
@@ -135,7 +126,7 @@ const DoctorProfiles = () => {
                     }
                     onClick={() => setSelectedDoctor(doctor)}
                   >
-                    View Profile
+                    {doctorProfiles.viewProfileBtn}
                   </Button>
                 </CardContent>
               </Card>
@@ -187,7 +178,7 @@ const DoctorProfiles = () => {
                             fontSize="small"
                           />
                           <Typography variant="subtitle2" fontWeight={600}>
-                            Experience
+                            {doctorProfiles.dialog.experience}
                           </Typography>
                         </Box>
                         <Typography variant="body2" color="text.secondary">
@@ -205,7 +196,7 @@ const DoctorProfiles = () => {
                         >
                           <SchoolIcon color="action" fontSize="small" />
                           <Typography variant="subtitle2" fontWeight={600}>
-                            Qualifications
+                            {doctorProfiles.dialog.qualifications}
                           </Typography>
                         </Box>
                         <Typography variant="body2" color="text.secondary">
@@ -223,7 +214,7 @@ const DoctorProfiles = () => {
                         >
                           <AccessTimeIcon color="action" fontSize="small" />
                           <Typography variant="subtitle2" fontWeight={600}>
-                            Availability
+                            {doctorProfiles.dialog.availability}
                           </Typography>
                         </Box>
                         <Typography variant="body2" color="text.secondary">
@@ -234,7 +225,7 @@ const DoctorProfiles = () => {
                   </Grid>
                   <Grid item xs={12} md={8}>
                     <Typography variant="h6" gutterBottom>
-                      Biography
+                      {doctorProfiles.dialog.biography}
                     </Typography>
                     <Typography
                       variant="body2"
@@ -245,7 +236,7 @@ const DoctorProfiles = () => {
                     </Typography>
 
                     <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-                      Areas of Expertise
+                      {doctorProfiles.dialog.expertise}
                     </Typography>
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
                       {selectedDoctor.specialties.map((specialty, index) => (
@@ -261,26 +252,24 @@ const DoctorProfiles = () => {
                 </Grid>
               </DialogContent>
               <DialogActions sx={{ px: 3, pb: 3 }}>
-                <Button onClick={() => setSelectedDoctor(null)}>Close</Button>
+                <Button onClick={() => setSelectedDoctor(null)}>
+                  {doctorProfiles.dialog.closeBtn}
+                </Button>
                 <Button
                   variant="contained"
                   color="primary"
                   autoFocus
                   onClick={() => {
                     setSelectedDoctor(null);
-                    setBookingOpen(true);
+                    openBooking();
                   }}
                 >
-                  Book Appointment
+                  {doctorProfiles.dialog.bookBtn}
                 </Button>
               </DialogActions>
             </>
           )}
         </Dialog>
-        <BookingDialog
-          open={bookingOpen}
-          onClose={() => setBookingOpen(false)}
-        />
       </Container>
     </Box>
   );
