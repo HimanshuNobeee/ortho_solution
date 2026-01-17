@@ -7,6 +7,8 @@ import Specialties from './components/home/Specialties';
 import OverviewAwards from './components/home/OverviewAwards';
 import BlogPreview from './components/home/BlogPreview';
 import { Box } from '@mui/material';
+import ServicesPage from './pages/ServicesPage';
+import PatientSuccessPage from './pages/PatientSuccessPage';
 
 // Home Component to group sections
 const Home = () => {
@@ -24,10 +26,14 @@ const Home = () => {
 const App = () => {
   return (
     <BrowserRouter>
-      <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <Box
+        sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}
+      >
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/patient-success" element={<PatientSuccessPage />} />
         </Routes>
         <Footer />
       </Box>

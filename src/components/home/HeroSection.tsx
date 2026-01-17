@@ -6,15 +6,17 @@ import {
   Grid2,
   Paper,
 } from '@mui/material';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import DirectionsIcon from '@mui/icons-material/Directions';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import BookingDialog from '../common/BookingDialog';
 
 const HeroSection = () => {
   const [bookingOpen, setBookingOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <Box sx={{ position: 'relative', overflow: 'hidden' }}>
@@ -43,7 +45,7 @@ const HeroSection = () => {
 
       <Container
         maxWidth="lg"
-        sx={{ pt: { xs: 8, md: 12 }, pb: { xs: 8, md: 20 } }}
+        sx={{ pt: { xs: 8, md: 12 }, pb: { xs: 12, md: 24 } }}
       >
         <Grid2 container spacing={6} alignItems="center">
           <Grid2 size={{ xs: 12, md: 6 }}>
@@ -155,10 +157,10 @@ const HeroSection = () => {
               desc: 'Comprehensive care options',
             },
             {
-              title: 'Check Calendar',
-              icon: <CalendarMonthIcon fontSize="large" />,
-              color: '#7B61FF',
-              desc: 'Find a time that works for you',
+              title: 'Patient Success',
+              icon: <ThumbUpIcon fontSize="large" />,
+              color: 'primary.main',
+              desc: 'Real stories from happy patients',
             },
           ].map((item, index) => (
             <Grid2 size={{ xs: 12, md: 4 }} key={index}>
@@ -181,6 +183,10 @@ const HeroSection = () => {
                 onClick={() => {
                   if (item.title === 'Book Appointment') {
                     setBookingOpen(true);
+                  } else if (item.title === 'Our Services') {
+                    navigate('/services');
+                  } else if (item.title === 'Patient Success') {
+                    navigate('/patient-success');
                   }
                 }}
               >
