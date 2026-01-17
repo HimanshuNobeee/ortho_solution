@@ -112,6 +112,34 @@ const Footer = () => {
           </Typography>
         </Box>
       </Container>
+
+      {/* Developer Promotion Bar */}
+      <Box
+        sx={{ bgcolor: 'rgba(0,0,0,0.2)', py: 1.5, mt: 4, textAlign: 'center' }}
+      >
+        <Typography variant="caption" sx={{ opacity: 0.8, letterSpacing: 0.5 }}>
+          Expertly Built by{' '}
+          <Box
+            component="span"
+            sx={{ fontWeight: 700, color: 'secondary.light' }}
+          >
+            Himanshu
+          </Box>{' '}
+          —
+          <Link
+            href="https://wa.me/918359880827?text=Hi%20Himanshu,%20I%20saw%20Ortho%20Solution%20and%20want%20a%20similar%20website"
+            target="_blank"
+            color="inherit"
+            sx={{
+              ml: 1,
+              fontWeight: 600,
+              textDecorationColor: 'rgba(255,255,255,0.5)',
+            }}
+          >
+            Get Your Own Medical Website
+          </Link>
+        </Typography>
+      </Box>
     </Box>
   );
 };
